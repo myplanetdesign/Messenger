@@ -1,0 +1,959 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0032)https://2cyr.com/decode/?lang=ru -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Универсальный декодер - конвертер кириллицы</title>
+
+<meta name="author" content="Petko Yotov">
+  <meta name="description" content="Бесплатный онлайн-перекодировщик текста в кириллице - распознавание всех вариантов перекодировок.">
+  <meta name="keywords" content="Крокозябры,крюкозябры,крякозябры,бнопня,decode,decoder, декодер,дешифратор,закодированный, абракадабра,cyrillic,latin, cp1251,utf,utf8,koi,koi8, кириллица,русский,кодировка,codepage,конвертер,кодировок,online,абракадабра, абраказябры, бнопня, боржоми, ёгрики, зюквы, зюки, калябушки, каракули, квакозябры, козюбрики, козяблики, козябры, кракозябли, кракозяблы, кракосямбы, крокозяблики, крокозяблы, крокозябры, крюкозяблы, крюкозябры, крякозяблики, крякозябры, птичий язык">
+
+
+<style type="text/css"><!--
+/* html { background: url(winter-bg.jpg) ; } */
+table.controls td{ border: 0px dotted #dddddd; border-width: 0px  0px 1px 0px;}
+h1{ border-bottom: 1px solid orangered; font-size: 1.4em; margin:0; padding:0;}
+h2{ border-bottom: 1px solid #dddddd; font-size: 1.2em; margin:0; padding:0;}
+h3{ border-bottom: 1px dotted #dddddd; font-size: 1.1em; margin:0; padding:0;}
+div.footer{border-top: 1px solid orangered;}
+p.output{padding:0.5em; border: 2px inset buttonface; background-color: white;}
+#copied {background-color: yellow;}
+tt{color:navy;}
+--></style>
+<script type="text/javascript"><!-- // Sorry guys...
+if(top!=self){try{top.location.href=self.location.href;}catch(e){top.location=self.location;}}
+
+function copyoutput(){
+  var range = document.createRange();
+  var tt_output = document.getElementById('tt_output');
+  range.selectNodeContents(tt_output);
+  var sel = window.getSelection();
+  sel.removeAllRanges();
+  sel.addRange(range);
+  document.execCommand('copy');
+  sel.removeAllRanges();
+  document.getElementById('copied').innerHTML = 'OK';
+}
+//--></script>
+</head>
+<body lang="ru">
+<img src="./Универсальный декодер - конвертер кириллицы_files/2cyr.png" align="right" style="display:none;" alt="">
+<div align="right" style="float:right; width:auto;">
+Version: 20171207</div>
+<h1>Универсальный декодер - конвертер кириллицы</h1>
+
+<div align="right" class="langs" id="langs">
+<small>
+  <a href="https://2cyr.com/decode/?lang=hy"><b>Հայերեն</b></a> -
+  <a href="http://galleries.accent.bg/Decode">Башҡорт</a> -
+  <a href="https://2cyr.com/decode/?lang=be"><b>Беларуская</b></a> -
+  <a href="https://2cyr.com/decode/?lang=bg"><b>Български</b></a> -
+  <a href="http://galleries.accent.bg/Decode">Иронау</a> -
+  <a href="http://galleries.accent.bg/Decode">Қазақша</a> -
+  <a href="http://galleries.accent.bg/Decode">Кыргызча</a> -
+  <a href="https://2cyr.com/decode/?lang=mk"><b>Македонски</b></a> -
+  <a href="http://galleries.accent.bg/Decode">Монгол</a>
+  <br>
+  <a href="http://galleries.accent.bg/Decode">Нохчийн</a> -
+  <a href="https://2cyr.com/decode/?lang=uz"><b>O’zbek</b></a> -
+  <a href="https://2cyr.com/decode/?lang=ru"><b>Русский</b></a> -
+  <a href="https://2cyr.com/decode/?lang=sk"><b>Slovensky</b></a> -
+  <a href="https://2cyr.com/decode/?lang=sr"><b>Српски</b></a> -
+  <a href="https://2cyr.com/decode/?lang=tt"><b>Татарча</b></a> -
+  <a href="http://galleries.accent.bg/Decode">Тоҷикӣ</a> -
+  <a href="https://2cyr.com/decode/?lang=uk"><b>Українська</b></a> -
+  <a href="http://galleries.accent.bg/Decode">Чaваш</a> -
+  <a href="https://2cyr.com/decode/?lang=fr"><b>Français</b></a> -
+  <a href="https://2cyr.com/decode/?lang=en"><b>English</b></a>
+</small>
+</div>
+
+
+<form action="https://2cyr.com/decode/?lang=ru" method="post" class="form" id="form">
+
+<strong>Скопируйте сюда исходный текст для декодирования (max : 100 kB) :</strong><!--<sup>(1)</sup>--><br>
+<textarea tabindex="1" name="text" rows="10" cols="60" style="width:100%;">Є®«ЁзҐбвў® бЁ¬ў®«®ў ў б«®ўҐ</textarea><br>
+
+
+<table border="0" width="100%" cellpadding="4" cellspacing="0" class="controls">
+<tbody><tr>
+<td align="center">
+<input type="button" value="Очистить" onclick="clform()">
+</td>
+<td align="right"><strong>Выберите кодировку : </strong>
+<select name="ident">
+<option value="">Aвтоматически (рекомендуется)</option>
+<option value=":CP866:WINDOWS-1252" selected="selected">Повторно использовать текущие настройки</option>
+<optgroup label="Текст выглядит так :">
+  <option value=":WINDOWS-1251:WINDOWS-1252">Óèêèïåäèÿ å ìíîãîåçè÷íà åëåêòðîííà åíöèêëîïåäèÿ.</option>
+  <option value=":KOI8-R:WINDOWS-1252">õÉËÉÐÅÄÉÑ Å ÍÎÏÇÏÅÚÉÞÎÁ ÅÌÅËÔÒÏÎÎÁ ÅÎÃÉËÌÏÐÅÄÉÑ</option>
+  <option value=":UTF-8:WINDOWS-1252">Ð£ÐžÐºÐžÐ¿ÐµÐŽÐžÑ Ðµ ÑÐ²ÐŸÐ±ÐŸÐŽ ÐŒÐœÐŸÐ³</option>
+  <option value="html-entities:WINDOWS-1251:WINDOWS-1252">&amp;egrave;&amp;eth;&amp;egrave;&amp;euml;&amp;egrave;&amp;ouml;&amp;agrave;</option>
+</optgroup><optgroup label=" ">
+  <option value=":KOI8-R:WINDOWS-1251">хЙЛЙРЕДЙС Е НОПЗПЕЪЙЮОБ ЕМЕЛФТПООБ ЕОГЙЛМПРЕДЙС</option>
+  <option value=":UTF-8:WINDOWS-1251">РЈРёРєРёРїРµРґРёСЏ Рµ СЃРІРѕР±РѕРґРЅР° РјРЅРѕРі</option>
+  <option value=":UTF-8:KOI8-R">пёп╦п╨п╦п©п╣п╢п╦я п╣ я│п╡п╬п╠п╬п╢п╫п╟ п╪п╫п╬пЁп╬п╣</option>
+  <option value=":GB2312:WINDOWS-1251">§Ґ§а§Т§в§Ц §Х§а§к§Э§С §Ъ §Я§С§Х§с§У§С§Ю §г§Ц</option>
+</optgroup><optgroup label=" ">
+  <option value="quoted-printable:WINDOWS-1251:WINDOWS-1251">=D2=EE=E2=E0 =ED=FF=EC=E0 =E4=E0 =F1=EF=F0=E0</option>
+  <option value="urlencoded:UTF-8:UTF-8">%D0%A2%D0%BE%D0%B2%D0%B0+%D0%B5+%D0%BA</option>
+  <option value="uurlencoded:UTF-8:UTF-8">%u043A%u0438%u0440%u0446 \u0438\u043B\u0438\u0446</option>
+  <option value="unicode:WINDOWS-1251:WINDOWS-1252">&amp;#229;&amp;#228;&amp;#237;&amp;#224; &amp;#227;&amp;#238;&amp;#228;&amp;#232;</option>
+  <option value="unicode::">&amp;#1080;&amp;#1088;&amp;#1080;&amp;#1083;&amp;#1080;&amp;#1094;&amp;#1072;</option>
+</optgroup>
+</select>
+</td>
+<td><input type="submit" name="identselected" value="OK" tabindex="2"></td>
+</tr>
+
+
+<tr style="background-color:lightyellow;">
+<td align="right">
+<strong>ИЛИ</strong> </td>
+<td align="right"><strong style="color:red;">Выберите вариант :</strong>
+<select name="sample" style="background-color:lightyellow; width:80%;">
+<option value="">Выберите читаемый вариант перекодировки :</option>
+<option value=":CP866:WINDOWS-1251"> количество символов в слове </option>
+<option value=":MIK:WINDOWS-1251"> колиτеßΓво ßимволов в ßлове </option>
+<option value=":ISO-8859-5:CP1361"> йчоЇойовогйч овоЇйчйч  овйч </option>
+<option value=":MIK:WINDOWS-1256"> оло моло  ло </option>
+<option value=":MIK:WINDOWS-1250"> оло моло  ло </option>
+<option value=":CP866:WINDOWS-1250"> оло моло  ло </option>
+<option value=":CP866:WINDOWS-1256"> оло моло  ло </option>
+<option value=":MIK:WINDOWS-1255"> оло моло  ло </option>
+<option value=":CP866:WINDOWS-1255"> оло моло  ло </option>
+<option value=":MIK:WINDOWS-1253"> оло моло  ло </option>
+<option value=":CP866:WINDOWS-1253"> оло моло  ло </option>
+<option value=":MIK:WINDOWS-1257"> оло моло  ло </option>
+<option value=":CP866:WINDOWS-1257"> оло моло  ло </option>
+<option value=":CP866:WINDOWS-1258"> оло моло  ло </option>
+<option value=":MIK:WINDOWS-1258"> оло моло  ло </option>
+<option value=":WINDOWS-1251:CP866"> т  р§ Ўўч  Ўр ч   ч ч Ў  ч </option>
+<option value=":ISO-8859-5:CP852"> Ў ЊЎ  Ў </option>
+<option value=":ISO-8859-5:CP437"> Ў ЊЎ  Ў </option>
+<option value=":MIK:CP852"> о ко  о </option>
+<option value=":CP866:CP852"> о ко  о </option>
+<option value=":CP866:CP437"> о ко  о </option>
+<option value=":MIK:CP437"> о ко  о </option>
+<option value=":ISO-8859-5:WINDOWS-1250"> ЎЋЎ ЌЎЋЎ  ЋЎ </option>
+<option value=":ISO-8859-5:WINDOWS-1253"> ЎЋЎ ЌЎЋЎ  ЋЎ </option>
+<option value=":ISO-8859-5:WINDOWS-1255"> ЎЋЎ ЌЎЋЎ  ЋЎ </option>
+<option value=":MIK:WINDOWS-1252"> ол      о   м оло     ло </option>
+<option value=":CP866:WINDOWS-1252"> ол      о   м оло     ло </option>
+<option value=":CP866:WINDOWS-1254"> ол      о   м оло     ло </option>
+<option value=":MIK:ISO-8859-1"> ол      о   м оло     ло </option>
+<option value=":CP866:ISO-8859-9"> ол      о   м оло     ло </option>
+<option value=":MIK:ISO-8859-8"> ол      о   м оло     ло </option>
+<option value=":CP866:ISO-8859-8"> ол      о   м оло     ло </option>
+<option value=":MIK:WINDOWS-1254"> ол      о   м оло     ло </option>
+<option value=":MIK:ISO-8859-9"> ол      о   м оло     ло </option>
+<option value=":CP866:ISO-8859-15"> ол      о   м оло     ло </option>
+<option value=":MIK:ISO-8859-13"> ол      о   м оло     ло </option>
+<option value=":CP866:ISO-8859-13"> ол      о   м оло     ло </option>
+<option value=":MIK:ISO-8859-15"> ол      о   м оло     ло </option>
+<option value=":CP866:ISO-8859-1"> ол      о   м оло     ло </option>
+<option value=":MACCYRILLIC:CP1361"> ўзёІёўё“ё”ўз ё“ёІўзўз  ё“ўз </option>
+<option value=":WINDOWS-1251:MIK"> §Ўў Ў  Ў </option>
+<option value=":ISO-8859-5:ISO-8859-1"> ЎЋ      Ў   Ќ ЎЋЎ     ЋЎ </option>
+<option value=":ISO-8859-5:ISO-8859-8"> ЎЋ      Ў   Ќ ЎЋЎ     ЋЎ </option>
+<option value=":ISO-8859-5:ISO-8859-9"> ЎЋ      Ў   Ќ ЎЋЎ     ЋЎ </option>
+<option value=":CP866:CP949"> вч мзм┘ м╥м╙ вч м╥мз  вч вч    м╥ вч </option>
+<option value=":CP855:MIK"> ДАб А  А </option>
+<option value=":CP855:CP866"> Ы  ­Д Абэ  А­ э   э э А  э </option>
+<option value=":WINDOWS-1251:ISO-8859-5"> ¤  ЎЧ СТю  СЎ ю   ю ю С  ю </option>
+<option value=":ISO-8859-5:CP949"> Ђч ЌЇЌй ЌвЌг Ђч ЌвЌЇ  Ђч Ђч    Ќв Ђч </option>
+<option value=":WINDOWS-1251:CP1361"> ЩзЮ§ЮЩЮТЮУЩз ЮТЮ§ЩзЩз  ЮТЩз </option>
+<option value=":ISO-8859-5:CP850"> ЉЎ      Љ   Њ ЉЎЉ     ЎЉ </option>
+<option value=":CP866:GB2312"> олззз┘Рз╥з╙^о з╥ззм^оло^ ^ з╥ло^ </option>
+<option value=":CP1166:UTF-8"> }dBжBс}a}ъKй}ы}зJоBж}ы}aBтJоBжBсBжJоJо}ыBсBжJоK </option>
+<option value=":KOI8-U:UTF-8"> п└б╝б╚п│пЇр░п╠п╡я·б╝ п╠п│б╛я·б╝б╚б╝я· я </option>
+<option value=":CP855:ISO-8859-5"> ц  АО Лм■  ЛА ■   ■ ■ Л  ■ </option>
+<option value=":CP866:CP850"> йо      й   к йой     ой </option>
+<option value=":MIK:CP850"> йо      й   к йой     ой </option>
+<option value=":ISO-8859-5:WINDOWS-1251"> ЊЎЋЈчЅстЂЎ сЈЌЂЎЋЎЂ Ђ сЋЎЂЅ </option>
+<option value=":CP1166:WINDOWS-1258"> жсжтжсжсж </option>
+<option value=":CP1166:WINDOWS-1250"> жсжтжсжсж </option>
+<option value=":CP1166:WINDOWS-1253"> жсжтжсжсж </option>
+<option value=":CP1166:WINDOWS-1256"> жсжтжсжсж </option>
+<option value=":CP1166:WINDOWS-1255"> жсжтжсжсж </option>
+<option value=":CP1166:WINDOWS-1257"> жсжтжсжсж </option>
+<option value=":CP855:CP1361"> ┘уяДя┘ямяМ┘у ямяД┘у┘у  ям┘у </option>
+<option value=":WINDOWS-1251:HP-ROMAN8"> ы ы  ы </option>
+<option value=":MACCYRILLIC:HP-ROMAN8"> ы ы  ы </option>
+<option value="::UTF-8"> Є®«ЁзҐбвў® бЁ¬ў®«®ў ў б«®ўҐ </option>
+<option value="::"> Є®«ЁзҐбвў® бЁ¬ў®«®ў ў б«®ўҐ </option>
+<option value=":MIK:CP949"> вτ мзм┘ м▓м│ вτ м▓мз  вτ вτ    м▓ вτ </option>
+<option value=":MIK:GB2312"> олззз┘Рз▓з│^о з▓ззм^оло^ ^ з▓ло^ </option>
+<option value=":KOI8-U:MACCYRILLIC"> ╦╗гщГ╒АБы╗ Ащбы╗г╗ы ы Аг╗ы╒ </option>
+<option value=":KOI8-R:MACCYRILLIC"> ╦╗гщГ╒АБы╗ Ащбы╗г╗ы ы Аг╗ы╒ </option>
+<option value=":CP866:MIK"> збв б  б </option>
+<option value=":CP866:MACCYRILLIC"> ╕и╟▌чвст┘и с▌┬┘и╟и┘ ┘ с╟и┘в </option>
+<option value=":KOI8-R:CP949"> ╒Г ╛╖╛ы ╛р╛с ╒Г ╛р╛╖  ╒Г ╒Г    ╛р ╒Г </option>
+<option value=":KOI8-U:CP949"> ╒Г ╛ї╛ы ╛р╛с ╒Г ╛р╛ї  ╒Г ╒Г    ╛р ╒Г </option>
+<option value=":KOI8-R:CP1361"> ыГч╖чычрчсыГ чрч╖ыГыГ  чрыГ </option>
+<option value=":KOI8-U:CP1361"> ыГчїчычрчсыГ чрчїыГыГ  чрыГ </option>
+<option value=":ISO-8859-5:KOI8-R"> Гк Тз   ТГ         Т </option>
+<option value=":KOI-7:SJIS"> фЬ ЯР   Яф        Я </option>
+<option value=":MACCYRILLIC:CP855"> ЗЃЕуҐлШ ҐЕШЃШ Ш ҐЃШ </option>
+<option value=":WINDOWS-1251:MACCYRILLIC"> ёЁЗЭзўбвЩЁ бЭВЩЁЗЁЩ Щ бЗЁЩў </option>
+<option value=":KOI8-R:HP-ROMAN8"> Ш Ш  Ш </option>
+<option value=":KOI8-U:HP-ROMAN8"> Ш Ш  Ш </option>
+<option value=":CP855:HP-ROMAN8"> ч ч  ч </option>
+<option value=":ISO-8859-5:HP-ROMAN8"> ћ ћ  ћ </option>
+<option value=":CP866:CP855"> ЗоЕєвыШ вЕШоШ Ш воШ </option>
+<option value=":CP855:CP850"> Е«      Е   ф Е«Е     «Е </option>
+<option value=":MIK:CP855"> ЗоЕ≤вδШ вЕШоШ Ш воШ </option>
+<option value=":MIK:SJIS"> ДFДx ДqДr   ДqДFБ╩        Дq </option>
+<option value=":CP866:SJIS"> ДFДx ДqДr   ДqДFБ╩        Дq </option>
+<option value=":MACCYRILLIC:SJIS"> ДFДx ДqДr   ДqДFБ&nbsp;        Дq </option>
+<option value=":WINDOWS-1251:CP949"> ўз ¬§¬Щ ¬Т¬У ўз ¬Т¬§  ўз ўз    ¬Т ўз </option>
+<option value=":CP855:WINDOWS-1251"> ф«ФеуЦрРб« регб«Ф«б б рФ«бЦ </option>
+<option value=":KOI8-R:UTF-8"> п└б╝б╚п│п╥р░п╠п╡я·б╝ п╠п│б╛я·б╝б╚б╝я· � </option>
+<option value=":KOI-7:CP1166"> ДЦЬуюЬЦууюуюЬу </option>
+<option value=":CP866:CP1361"> ┘ч▐з▐┘▐╥▐╙┘ч ▐╥▐з┘ч┘ч  ▐╥┘ч </option>
+<option value=":CP855:WINDOWS-1256"> «Ф« г«Ф«  Ф« </option>
+<option value=":CP855:WINDOWS-1250"> «Ф« г«Ф«  Ф« </option>
+<option value=":CP855:WINDOWS-1258"> «Ф« г«Ф«  Ф« </option>
+<option value=":CP855:WINDOWS-1253"> «Ф« г«Ф«  Ф« </option>
+<option value=":CP855:WINDOWS-1255"> «Ф« г«Ф«  Ф« </option>
+<option value=":CP855:WINDOWS-1257"> «Ф« г«Ф«  Ф« </option>
+<option value=":MACCYRILLIC:WINDOWS-1250"> ЃЂЃ ђЃЂЃ  ЂЃ </option>
+<option value=":MACCYRILLIC:WINDOWS-1253"> ЃЂЃ ђЃЂЃ  ЂЃ </option>
+<option value=":MACCYRILLIC:WINDOWS-1255"> ЃЂЃ ђЃЂЃ  ЂЃ </option>
+<option value=":CP866:UTF-8"> ╨Д┬о┬л╨Б╨╖╥Р╨▒╨▓╤Ю┬о ╨▒╨Б┬м╤Ю┬о┬л┬о </option>
+<option value=":MIK:UTF-8"> ░Д┬о┬л░Б░ч▓Р░с░т▒Ю┬о ░с░Б┬м▒Ю┬о┬л┬о▒� </option>
+<option value=":KOI8-R:ISO-8859-5"> ╓  ║в ярЧ  я║ Ч   Ч Ч я  Ч </option>
+<option value=":KOI8-U:ISO-8859-5"> є  ║в ярЧ  я║ Ч   Ч Ч я  Ч </option>
+<option value=":MACCYRILLIC:CP949"> Ґз ђІђў ђ“ђ” Ґз ђ“ђІ  Ґз Ґз    ђ“ Ґз </option>
+<option value=":CP1166:WINDOWS-1251"> ржсyXv€Ssж€yтsжсжss€сжsv </option>
+<option value=":MIK:MACCYRILLIC"> ши║▌τвßΓ┘и ß▌┬┘и║и┘ ┘ ß║и┘в </option>
+<option value=":CP1166:CP852"> жржж </option>
+<option value=":CP1166:CP437"> жржж </option>
+<option value=":KOI8-U:KOI8-R"> Ёз бв   бЁ         б </option>
+<option value=":CP855:MACCYRILLIC"> ИеКПубрР┘е рП┬┘еКе┘ ┘ рКе┘б </option>
+<option value=":CP855:CP949"> бу гДг┘ гмгМ бу гмгД  бу бу    гм бу </option>
+<option value=":WINDOWS-1251:KOI8-R"> іЪ ВЧ   Ві         В </option>
+<option value=":MACCYRILLIC:ISO-8859-5"> §  °„ —“ю  —° ю   ю ю —  ю </option>
+<option value=":CP866:UTF-16"> ол7Р12^о 1м^оло^ ^ 1ло </option>
+<option value=":MIK:UTF-16"> ол7Р12^о 1м^оло^ ^ 1ло </option>
+<option value=":ISO-8859-5:MACCYRILLIC"> ИЈЧнчЂстйЈ снТйЈЧЈй й сЧЈйЂ </option>
+<option value=":ISO-8859-5:UTF-8"> аТЎТЋааЗваБаВбТЎ аБаТЌбТЎТЋТЎб б аБТЋТ� </option>
+<option value=":ISO-8859-5:CP855"> ЎѓЂы ЂЎ  ЂЎ </option>
+<option value=":ISO-8859-5:GB2312"> ЎЋЇЇЇйЇвЇг^Ў ЇвЇЇЌ^ЎЋЎ^ ^ ЇвЋЎ^ </option>
+<option value=":KOI-7:ISO-2022-JP"> ¤б'''ы(б ¤б'р'с(б   ¤б'р''"л(б        ¤б'р </option>
+<option value=":MACCYRILLIC:CP866"> т  рІ °Ґч  °р ч   ч ч °  ч </option>
+<option value=":KOI8-R:CP866"> Р  П╖ ║╒В  ║П В   В В ║  В </option>
+<option value=":KOI8-U:CP866"> Р  Пї ║╒В  ║П В   В В ║  В </option>
+<option value=":CP1166:HP-ROMAN8"> ШШШ </option>
+<option value=":KOI-7:UTF-7"> +баяаРГцРбаеенВсябдеемГрЕак4 +бдееаяцСбф4аРГцРа� </option>
+<option value=":MACCYRILLIC:UTF-8"> –Д¬Ѓ¬Ђ–Б–Ј“Р–±–≤—Ю¬Ѓ –±–Б¬ђ—Ю¬Ѓ¬Ђ¬Ѓ—Ю —� </option>
+<option value=":KOI8-R:KOI8-U"> ╢  Ёз╫бв   бЁ         б   ╫ </option>
+<option value=":WINDOWS-1251:KOI8-U"> ґ  іЪЅВЧ   Ві         В   Ѕ </option>
+<option value=":GB2312:MIK"> А </option>
+<option value=":WINDOWS-1251:CP855"> ‡®…уўл? ў…?®? ? ў®? </option>
+<option value=":MACCYRILLIC:ISO-8859-7"> Ђ          ђ  Ђ      Ђ </option>
+<option value=":CP855:ISO-8859-7"> Ф          г  Ф      Ф </option>
+<option value=":MIK:ISO-8859-7"> л          м  л      л </option>
+<option value=":CP866:ISO-8859-7"> л          м  л      л </option>
+<option value=":MACCYRILLIC:GB2312"> ЃЂІІІўРІ“І”^Ѓ І“ІІђ^ЃЂЃ^ ^ І“ЂЃ^ </option>
+<option value=":WINDOWS-1251:UTF-8"> Р„В®В«РЃР·ТђР±РІСћВ® Р±РЃВ¬СћВ®В«В®Сћ Сћ Р±В«В </option>
+<option value=":CP1166:CP1361"> RXРxРRРKРLRXРKРxRXRXРKRX </option>
+<option value=":CP855:WINDOWS-1254"> «Ф      «   г «Ф«     Ф« </option>
+<option value=":CP855:ISO-8859-15"> «Ф      «   г «Ф«     Ф« </option>
+<option value=":CP855:ISO-8859-13"> «Ф      «   г «Ф«     Ф« </option>
+<option value=":CP855:ISO-8859-9"> «Ф      «   г «Ф«     Ф« </option>
+<option value=":CP855:WINDOWS-1252"> «Ф      «   г «Ф«     Ф« </option>
+<option value=":CP855:ISO-8859-8"> «Ф      «   г «Ф«     Ф« </option>
+<option value=":CP855:ISO-8859-1"> «Ф      «   г «Ф«     Ф« </option>
+<option value=":MACCYRILLIC:ISO-8859-9"> ЃЂ      Ѓ   ђ ЃЂЃ     ЂЃ </option>
+<option value=":MACCYRILLIC:ISO-8859-1"> ЃЂ      Ѓ   ђ ЃЂЃ     ЂЃ </option>
+<option value=":MACCYRILLIC:ISO-8859-8"> ЃЂ      Ѓ   ђ ЃЂЃ     ЂЃ </option>
+<option value=":KOI-7:CP930"> ??аааа?юааъ???ююа?? </option>
+<option value=":MIK:KOI8-U"> ф  у┌э┬╗   ┬у         ┬   э </option>
+<option value=":CP1166:CP855"> gжe3sУqseqжqqsжq </option>
+<option value=":KOI8-R:WINDOWS-1251"> ╙╝╚╗Г╔АБ╒╝ А╗╛╒╝╚╝╒ ╒ А╚╝╒╔ </option>
+<option value=":KOI8-U:WINDOWS-1251"> ╙╝╚╗Г╔АБ╒╝ А╗╛╒╝╚╝╒ ╒ А╚╝╒╔ </option>
+<option value=":CP855:UTF-8"> лё┬«┬ФлЂлимљл▒л▓Лъ┬« л▒лЂ┬гЛъ┬«┬Ф┬«Лъ Лъ � </option>
+<option value=":ISO-8859-5:ISO-8859-7"> Ћ          Ќ  Ћ      Ћ </option>
+<option value=":ISO-8859-5:KOI8-U"> Д  ГкНТз   ТГ         Т   Н </option>
+<option value=":CP1166:WINDOWS-1252"> жсжтжсжсж </option>
+<option value=":CP1166:ISO-8859-15"> жсжтжсжсж </option>
+<option value=":CP1166:ISO-8859-9"> жсжтжсжсж </option>
+<option value=":CP1166:ISO-8859-1"> жсжтжсжсж </option>
+<option value=":CP1166:WINDOWS-1254"> жсжтжсжсж </option>
+<option value=":CP1166:ISO-8859-13"> жсжтжсжсж </option>
+<option value=":CP1166:ISO-8859-8"> жсжтжсжсж </option>
+<option value=":MACCYRILLIC:KOI8-U"> і  ≥Џљ¬„   ¬≥         ¬   љ </option>
+<option value=":CP949:WINDOWS-1253"> Мギ  ギ </option>
+<option value=":CP949:WINDOWS-1255"> Мギ  ギ </option>
+<option value=":CP949:WINDOWS-1258"> Мギ  ギ </option>
+<option value=":CP949:WINDOWS-1256"> Мギ  ギ </option>
+<option value=":CP949:WINDOWS-1250"> Мギ  ギ </option>
+<option value=":CP949:WINDOWS-1257"> Мギ  ギ </option>
+<option value=":CP866:ISO-8859-5"> д  б╫ ╤╥■  ╤б ■   ■ ■ ╤  ■ </option>
+<option value=":ISO-8859-5:UTF-16"> ЎЋ712^Ў 1Ќ^ЎЋЎ^ ^ 1ЋЎ </option>
+<option value=":MACCYRILLIC:WINDOWS-1251"> ™ЃЂ®з•бвҐЃ б®ђҐЃЂЃҐ Ґ бЂЃҐ• </option>
+<option value=":MIK:CP1166"> dcтxпU@xcUU@U@xU </option>
+<option value=":KOI-7:CP933"> ??йгйЙйЦйД?юйЦйгъ???ююйЦ?? </option>
+<option value=":MIK:CP866"> ≥  ≡з бв≈  б≡ ≈   ≈ ≈ б  ≈ </option>
+<option value=":MACCYRILLIC:CP930"> ??A∆AИAБAВ?@AБA∆_???@@AБ?? </option>
+<option value=":CP866:CP930"> ??A╞AИAБAВ?@AБA╞_???@@AБ?? </option>
+<option value=":MACCYRILLIC:MIK"> І°Ґ °  ° </option>
+<option value=":CP855:CP852"> « ф«  « </option>
+<option value=":CP855:CP437"> « ф«  « </option>
+<option value=":CP855:CP930"> ??AкAѕAЂAѓ?@AЂAк_???@@AЂ?? </option>
+<option value=":ISO-8859-5:MIK"> ЇЁЂ Ё  Ё </option>
+<option value=":CP1166:CP949"> sXтxтRтKтLsXтKтxsXsXтKsX </option>
+<option value=":CP1166:MACCYRILLIC"> ЮyGЯXs€SRy€ЯBRyGyRR€GyRs </option>
+<option value=":CP1166:GB2312"> жсxxxRйxKxL;жxKxxт;жсж;;xKсж; </option>
+<option value=":ISO-8859-5:CP866"> ђ  №Ї ЁЂї  Ё№ ї   ї ї Ё  ї </option>
+<option value=":CP1166:ISO-8859-5"> u~PJKЧJ~ЧЧЧJЧ </option>
+<option value=":MIK:ISO-8859-5"> д  б╗ ▒▓■  ▒б ■   ■ ■ ▒  ■ </option>
+<option value=":KOI-7:GB2312"> ч чч ч ч </option>
+<option value=":CP855:KOI8-U"> ┤  │┌й┬О   ┬│         ┬   й </option>
+<option value=":MIK:CP930"> ??A╣AИAБAВ?@AБA╣_???@@AБ?? </option>
+<option value=":MIK:KOI8-R"> у┌ ┬╗   ┬у         ┬ </option>
+<option value=":CP1166:CP933"> [і[|[Ё[Є [Ё[і^  [Ё </option>
+<option value=":UTF-16:GB2312"> Є®«ꞧꟙҐ꟒ꟓў®₧튧꜀간帀글꬀긄帠ў₧툀꬀긄帄 </option>
+<option value=":CP1166:KOI8-U"> эшНЕBPBшBЕ </option>
+<option value=":CP949:WINDOWS-1251"> ぎエ曄飡¡ 歲Б   ◇笹 </option>
+<option value=":WINDOWS-1251:CP1166"> dcІxЇU@xcUU@U@xU </option>
+<option value=":CP1166:KOI-7"> ]әЪәә </option>
+<option value=":MIK:CP1361"> ┘τ▐з▐┘▐▓▐│┘τ ▐▓▐з┘τ┘τ  ▐▓┘τ </option>
+<option value=":CP1166:CP850"> zжzрzжzжz </option>
+<option value=":KOI8-U:CP855"> ┤╝┘С╒К≤ ╒┘≤╝≤ ≤ ╒╝≤ </option>
+<option value=":KOI8-R:CP855"> ┤╝┘С╒К≤ ╒┘≤╝≤ ≤ ╒╝≤ </option>
+<option value=":CP866:CP1166"> dc▓xпU@xcUU@U@xU </option>
+<option value=":ISO-8859-5:CP1166"> dcВxЏU@xcUU@U@xU </option>
+<option value=":CP1166:UTF-16"> жсй;жт;жсж;;сж </option>
+<option value=":CP1166:ISO-8859-7"> стсс </option>
+<option value=":CP855:UTF-16"> «Ф7љ12^« 1г^«Ф«^ ^ 1Ф« </option>
+<option value=":MACCYRILLIC:UTF-16"> ЃЂ7Р12^Ѓ 1ђ^ЃЂЃ^ ^ 1ЂЃ </option>
+<option value=":KOI-7:UTF-16"> 712ч 1чч ч 1ч </option>
+<option value=":CP855:GB2312"> «ФДДД┘љДмДМ^« ДмДДг^«Ф«^ ^ ДмФ«^ </option>
+<option value=":WINDOWS-1251:GB2312"> ®«§§§Щђ§Т§У^® §Т§§¬^®«®^ ^ §Т«®^ </option>
+<option value=":WINDOWS-1251:SJIS"> „F„x „q„r   „q„FЃК        „q </option>
+<option value=":CP855:SJIS"> ёFёx ёqёr   ёqёFЂ╩        ёq </option>
+<option value=":WINDOWS-1251:CP930"> ??AЖA€AЃA‚?@AЃAЖ_???@@AЃ?? </option>
+<option value=":KOI8-R:GB2312"> ╝╚╖╖╖ы░╖р╖с^╝ ╖р╖╖╛^╝╚╝^ ^ ╖р╚╝ </option>
+<option value=":CP855:KOI8-R"> │┌ ┬О   ┬│         ┬ </option>
+<option value=":KOI8-U:GB2312"> ╝╚їїїы░їрїс^╝ їрїї╛^╝╚╝^ ^ їр╚╝^ </option>
+<option value=":CP1166:SJIS"> dѕdбdҰdҮdҰdѕaХdҰ </option>
+<option value=":CP1166:KOI8-R"> шНBPBшB </option>
+<option value=":KOI8-U:CP930"> ??AфA┬A│A┌?@A│Aф_???@@A│?? </option>
+<option value=":KOI8-R:CP930"> ??AфA┬A│A┌?@A│Aф_???@@A│?? </option>
+<option value=":ISO-8859-5:SJIS"> Fx qr   qFЪ        q </option>
+<option value=":ISO-8859-5:CP930"> ??AЦAAA?@AAЦ_???@@A?? </option>
+<option value=":KOI8-R:SJIS"> └F└x └q└r   └q└F│й        └q </option>
+<option value=":KOI8-U:SJIS"> └F└x └q└r   └q└F│й        └q </option>
+<option value=":CP1166:UTF-7"> ә&nbsp;ң&nbsp;ҮҚғҮә&nbsp;єє+аұңәёєє(ҚөЅ&nbsp;.әёєє&nbsp;ңғ­әѕ&nbsp;ҮҚғҮ� </option>
+<option value=":WINDOWS-1251:UTF-16"> ®«7ђ12^® 1¬^®«®^ ^ 1«® </option>
+<option value=":ISO-2022-JP:GB2312"> ｮｫｧｧｧﾙ ｧﾒｧﾓ^ｮ ｧﾒｧｧｬ^ｮｫｮ^ ^ ｧﾒｫ </option>
+<option value=":SJIS:GB2312"> ｮｫｧｧｧﾙ制ﾒｧﾓ^ｮ ｧﾒｧｧｬ^ｮｫｮ^ ^ ｧﾒｫ� </option>
+<option value=":CP1166:ISO-2022-JP"> әӘәәөұәәө&lt;ә� </option>
+<option value=":CP930:ISO-2022-JP"> ｢｢｢ｫｬ｢｢ｫ&lt;｢ </option>
+<option value=":CP933:ISO-2022-JP"> ﾠﾯﾠﾠﾨﾩﾠﾠﾨ&lt;ﾠ� </option>
+<option value=":CP930:UTF-7"> ｢｡ｪ｡jf｣j｢｡･･+oｬｪ｢､･･(fｫd｡.｢､･･｡ｪ｣k </option>
+<option value=":CP933:UTF-7"> ﾠﾸﾵﾡﾸﾠﾣﾣ+ﾽﾩﾠﾢﾣﾣ(ﾵﾨﾳ.ﾠﾢﾣﾣﾡﾹﾠﾤ� </option>
+<option value=":CP930:UTF-16"> ﾘsｿ;ﾘﾖ;ﾘsﾘ;;sﾘ </option>
+<option value=":CP930:GB2312"> ﾘsﾒﾒﾒRｿﾒKﾒL;ﾘﾒKﾒﾒﾖ;ﾘsﾘ;;ﾒKsﾘ� </option>
+<option value=":CP933:UTF-16"> ￖￓ;ￖￔ;ￖￓￖ;;ￓￖ </option>
+<option value=":UTF-16:UTF-7"> ⭂䅑䅲权牂䅅䕎睓兂䑅䕍杒敁䬴‫䉄䕅䅑䍳䉆㑁牧䍲䅋㑅塧‫䉆㐠⭂ </option>
+<option value=":SJIS:UTF-8"> ﾐ ｮﾂｫﾐ ｷﾒ籍ｱﾐｲﾑ楪ｮ ﾐｱﾐ ｬﾑ楪ｮﾂｫﾂｮﾑ ﾑ ﾐ </option>
+<option value=":ISO-2022-JP:UTF-8"> ﾐ ﾂｮﾂｫﾐ ﾐｷﾒ ﾐｱﾐｲﾑ ﾂｮ ﾐｱﾐ ﾂｬﾑ ﾂｮﾂｫﾂ� </option>
+<option value=":CP930:UTF-8"> }ｴBﾘBs}ｱ}xKｿ}¢}\JﾋBﾘ}¢}ｱBﾖJﾋBﾘBsBﾘJﾋJﾋ}¢BsBﾘJﾋK </option>
+<option value=":UTF-16:ISO-2022-JP"> †‛⑂✧❙ᬨ䈠ᬤ䈧刧匛⡂†‛⑂❒✧≌ᬨ䈠†††‛⑂❒ᬨ䈠† </option>
+<option value=":CP930:CP949"> ﾍXﾖﾒﾖRﾖKﾖLﾍXﾖKﾖﾒﾍXﾍXﾖKﾍX </option>
+<option value=":CP933:GB2312"> ￖￓxxxRxKxL;ￖxKxxￔ;ￖￓￖ;;xKￓￖ; </option>
+<option value=":KOI8-R:UTF-16"> ╝╚7░12^╝ 1╛^╝╚╝^ ^ 1╚╝ </option>
+<option value=":KOI8-U:UTF-16"> ╝╚7░12^╝ 1╛^╝╚╝^ ^ 1╚╝ </option>
+<option value=":CP933:UTF-8"> }dBￖBￓ}a}K}}\JￎBￖ}}aBￔJￎBￖBￓBￖJￎJￎ}BￓBￖJￎK </option>
+<option value=":CP949:UTF-8"> 穹짰짬窟鈞煖閨勻技짰 閨窟짭技짰짬짰技 技 閨짬짰技煖 </option>
+<option value=":UTF-16:UTF-8"> 킄슮슫킁킷튐킱킲톞슮⃐뇐臂곑黂껂ꯂ껑鸠톞⃐뇂ꯂ껑黒 </option>
+<option value="::UTF-7"> +BAQArgCrBAEENwSQBDEEMgReAK4 +BDEEAQCsBF4ArgCrAK4E </option>
+<option value=":WINDOWS-1251:UTF-7"> +BAQArgCrBAEENwSQBDEEMgReAK4 +BDEEAQCsBF4ArgCrAK4E </option>
+<option value=":KOI8-R:UTF-7"> +BAQArgCrBAEENwSQBDEEMgReAK4 +BDEEAQCsBF4ArgCrAK4E </option>
+<option value=":KOI8-U:UTF-7"> +BAQArgCrBAEENwSQBDEEMgReAK4 +BDEEAQCsBF4ArgCrAK4E </option>
+<option value=":CP930:SJIS"> ｴｦｴpｴiｴjｴiｴｦｱｴi </option>
+<option value=":ISO-2022-JP:CP949"> ｢  ｬｧｬﾙ ｬﾒｬﾓ ｢  ｬﾒｬｧ  ｢  ｢     ｬﾒ ｢ </option>
+<option value=":ISO-2022-JP:UTF-16"> ｮｫ7 12^ｮ 1ｬ^ｮｫｮ^ ^ 1ｫｮ </option>
+<option value=":SJIS:UTF-16"> ｮｫ712^ｮ 1ｬ^ｮｫｮ^ ^ 1ｫｮ </option>
+<option value=":SJIS:CP949"> ｢ ｬｧｬﾙ ｬﾒｬﾓ ｢ ｬﾒｬｧ  ｢ ｢    ｬﾒ ｢ </option>
+<option value=":CP933:CP949"> sXￔxￔRￔKￔLsXￔKￔxsXsXￔKsX </option>
+<option value=":ISO-2022-JP:WINDOWS-1251"> ｪｮｫｨ ･  ｢ｮ  ｨｬ｢ｮｫｮ｢ ｢  ｫｮ｢･ </option>
+<option value=":ISO-2022-JP:MACCYRILLIC"> ｸｨﾇﾝ ｢  ﾙｨ  ﾝﾂﾙｨﾇｨﾙ ﾙ  ﾇｨﾙ｢ </option>
+<option value=":ISO-2022-JP:CP1361"> ﾙ ﾞｧﾞﾙﾞﾒﾞﾓﾙ  ﾞﾒﾞｧﾙ ﾙ   ﾞﾒﾙ </option>
+<option value=":CP930:CP850"> ﾔﾘﾔﾕﾔﾘﾔﾘﾔ </option>
+<option value=":CP933:ISO-8859-1"> ￖￓￖￔￖￓￖￓￖ </option>
+<option value=":CP933:ISO-8859-8"> ￖￓￖￔￖￓￖￓￖ </option>
+<option value=":CP933:ISO-8859-9"> ￖￓￖￔￖￓￖￓￖ </option>
+<option value=":SJIS:WINDOWS-1251"> ｪｮｫｨ逾矮｢ｮ 皖ｬ｢ｮｫｮ｢ ｢ 皚ｮ｢･ </option>
+<option value=":SJIS:MACCYRILLIC"> ｸｨﾇﾝ遒矮ﾙｨ 矍ﾂﾙｨﾇｨﾙ ﾙ 睇ｨﾙ｢ </option>
+<option value=":CP1361:UTF-8"> 핷춽춺해향훓햠쒬뤡 햠해춻뤡쉑춽  햠춺춽훓 </option>
+<option value=":SJIS:CP1361"> ﾙ釵ｧﾞﾙﾞﾒﾞﾓﾙ ﾞﾒﾞｧﾙ釖  ﾞﾒﾙ </option>
+<option value="::ISO-2022-JP">    $B'''Y(B $B'R'S(B   $B'R''"L(B        $B </option>
+<option value=":CP930:WINDOWS-1251"> ﾕﾘsﾓXﾐSﾍﾘﾓﾖﾍﾘsﾘﾍﾍsﾘﾍﾐ </option>
+<option value=":CP933:SJIS"> dﾤdﾾddﾸddﾤad </option>
+<option value=":CP933:ISO-8859-7"> ￓￔￓￓ </option>
+<option value=":CP949:GB2312">  ェ㎣戮맕廊記^ ㎾㎣ヂ^ ぞ ^ ^ ㎾ぞ ^ </option>
+<option value=":CP930:ISO-8859-1"> ﾘsﾘﾖﾘsﾘsﾘ </option>
+<option value=":CP930:ISO-8859-9"> ﾘsﾘﾖﾘsﾘsﾘ </option>
+<option value=":CP930:ISO-8859-8"> ﾘsﾘﾖﾘsﾘsﾘ </option>
+<option value=":UTF-16:CP949"> ₢겧곙€튬팠ꋧ€튬꜠₢ꋧ††곒₢ </option>
+<option value=":UTF-8:UTF-16"> ��7�12^� 1�^���^ ^ 1�� </option>
+<option value="::UTF-16"> ��7�12^� 1�^���^ ^ 1�� </option>
+<option value=":CP1166:BIG-5">  </option>
+<option value=":CP930:BIG-5">  </option>
+<option value=":CP933:BIG-5">  </option>
+<option value=":UTF-7:UTF-16">   7 12^  1 ^   ^ ^ 1   </option>
+<option value=":CP949:UTF-16">  ぢ7뤒12^  1ヂ^ ぞ ^ ^ 1ぞ ^ </option>
+<option value=":CP933:CP850"> zￖzￒzￖzￖz </option>
+<option value=":WINDOWS-1251:ISO-2022-JP"> $B'''Y(B $B'R'S(B   $B'R''"L(B        $B'R </option>
+<option value=":KOI8-U:ISO-2022-JP"> $B'''Y(B $B'R'S(B   $B'R''"L(B        $B'R </option>
+<option value=":KOI8-R:ISO-2022-JP"> $B'''Y(B $B'R'S(B   $B'R''"L(B        $B'R </option>
+<option value=":CP930:ISO-8859-7"> sﾖss </option>
+<option value=":GB2312:UTF-8"> 庐芦 蟹 斜胁 庐 斜 卢 庐芦庐    斜芦庐 </option>
+<option value=":BIG-5:UTF-8"> 簧竄 郱 訇赲 簧 訇 竅 簧竄簧    訇竄簧 </option>
+<option value="::GB2312"> ��������ҧ�^� �ҧ��^���^ ^ ����^� </option>
+<option value=":UTF-8:GB2312"> ��������ҧ�^� �ҧ��^���^ ^ ����^� </option>
+<option value=":CP930:CP866"> 20ﾒ‾ﾍ7‾0777‾7 </option>
+<option value=":UTF-16:SJIS"> †₄䚄砠葱葲†₄熄䚁쨠†††₄焠† </option>
+<option value=":UTF-7:GB2312">            ^       ^   ^ ^     ^ </option>
+<option value=":CP930:CP855"> ｷﾘｵ3ﾍﾇﾍｵﾇﾘﾇﾇﾍﾘﾇ </option>
+<option value=":BIG-5:GB2312"> 咩壯 忌志^ 忌壯^^ ^ 忌^ </option>
+<option value=":UTF-16:CP930"> 㼿แ왁衁腁舏㽀แ腁옏弿㼿䁀แ脏㼿 </option>
+<option value=":UTF-16:CP933"> 㼿๊䝊橊捊搏㽀๊捊䜏弿㼿䁀๊挏㼿 </option>
+<option value=":BIG-5:CP949"> Ｙ 洹省 皆皇 Ｙ 皆洹  Ｙ Ｙ    皆 Ｙ </option>
+<option value=":CP930:KOI8-U"> utﾝBPBtBﾝ </option>
+<option value=":CP866:KOI8-U"> ┤  │┌╜┬╫   ┬│         ┬   ╜ </option>
+<option value=":ISO-2022-JP:KOI8-U"> ｴ  ｳﾚｽﾂﾗ   ﾂｳ         ﾂ   ｽ </option>
+<option value=":SJIS:KOI8-U"> ｴ  ｳﾚｽﾂﾗ   ﾂｳ         ﾂ   ｽ </option>
+<option value=":CP933:WINDOWS-1251"> ￒￖￓyXvSsￖyￔsￖￓￖssￓￖsv </option>
+<option value=":CP930:KOI8-R"> tBPBtB </option>
+<option value=":GB2312:UTF-16"> 7 12^ 1^^ ^ 1^ </option>
+<option value=":BIG-5:UTF-16"> 7 12^ 1^^ ^ 1^ </option>
+<option value=":ISO-2022-JP:CP930"> ??ﾁﾆﾁ ﾁ ﾁ ?@ﾁ ﾁﾆ_???@@ﾁ ?? </option>
+<option value=":ISO-2022-JP:CP933"> ??ﾊﾇﾊjﾊcﾊd?@ﾊcﾊﾇ_???@@ﾊc?? </option>
+<option value=":CP933:KOI8-R"> BPBB </option>
+<option value=":KOI8-R:CP850"> ╘╝      ╘   ╙ ╘╝╘     ╝╘ </option>
+<option value=":KOI8-U:CP850"> ╘╝      ╘   ╙ ╘╝╘     ╝╘ </option>
+<option value=":KOI8-R:ISO-8859-8"> ╝╚      ╝   ╛ ╝╚╝     ╚╝ </option>
+<option value=":KOI8-U:ISO-8859-1"> ╝╚      ╝   ╛ ╝╚╝     ╚╝ </option>
+<option value=":KOI8-R:ISO-8859-1"> ╝╚      ╝   ╛ ╝╚╝     ╚╝ </option>
+<option value=":ISO-2022-JP:CP850"> ｩｮ      ｩ   ｪ ｩｮｩ     ｮｩ </option>
+<option value=":SJIS:CP850"> ｩｮ      ｩ   ｪ ｩｮｩ     ｮｩ </option>
+<option value=":ISO-2022-JP:ISO-8859-1"> ｮｫ      ｮ   ｬ ｮｫｮ     ｫｮ </option>
+<option value=":SJIS:ISO-8859-8"> ｮｫ      ｮ   ｬ ｮｫｮ     ｫｮ </option>
+<option value=":SJIS:ISO-8859-1"> ｮｫ      ｮ   ｬ ｮｫｮ     ｫｮ </option>
+<option value=":CP930:ISO-8859-5"> ﾏ‾PJKJ‾J </option>
+<option value=":CP933:CP866"> 20x~s7~0777~7 </option>
+<option value=":CP1166:CP866"> 20x~s7~0777~7 </option>
+<option value=":CP933:CP1166"> ﾲﾱ\ﾾￗﾫ ﾾﾱﾫﾫ ﾫ ﾾﾫ </option>
+<option value=":CP1166:CP930"> &nbsp;F&nbsp;h&nbsp;a&nbsp;b &nbsp;a&nbsp;F^  &nbsp;a </option>
+<option value="::CP949">  �� ���� �Ҭ� �� �Ҭ�  �� ��    �� ��   </option>
+<option value=":CP930:MACCYRILLIC"> yﾓGXﾍSRﾓBRﾓGﾓRRGﾓRﾍ </option>
+<option value=":UTF-16:BIG-5"> ††††††††††††† </option>
+<option value=":UTF-16:ISO-8859-2"> ††††††††††††† </option>
+<option value=":UTF-16:ISO-8859-3"> ††††††††††††† </option>
+<option value=":UTF-16:ISO-8859-7"> †ꬠ††††€†ꬠ††₫† </option>
+<option value=":UTF-16:CP850"> ₩긠††₩†₪₩꺩††₮ꤠ </option>
+<option value=":UTF-16:ISO-8859-1"> ₮ꬠ††₮†€₮ꮮ††₫긠 </option>
+<option value=":UTF-16:ISO-8859-9"> ₮ꬠ††₮†€₮ꮮ††₫긠 </option>
+<option value=":UTF-16:ISO-8859-8"> ₮ꬠ††₮†€₮ꮮ††₫긠 </option>
+<option value=":GB2312:CP1361"> 夔蕨拶抟抻夔 抟蕨夔夔  抟夔 </option>
+<option value=":CP949:CP1361"> 拇譬斯射巳拇 射譬拇拇  射拇 </option>
+<option value=":BIG-5:CP1361"> 淼犑睟痭痵淼 痭犑淼淼  痭淼 </option>
+<option value=":UTF-16:ISO-8859-5"> ꐠ₡휠퇒︠⃑ꄠ︠†︠︠턠⃾ </option>
+<option value=":UTF-16:WINDOWS-1251"> ꪮꮨꊮ⃡ꢬꊮꮮꈠꈠ꺢 </option>
+<option value=":CP1361:CP949"> 뮎 샪섗 훫 뮎 훫  뮎 뮎     뮎 </option>
+<option value=":UTF-16:CP866"> ⃰꜠ꆢ₡†ꄠ⃷ </option>
+<option value=":SJIS:ISO-8859-5"> ､  ｡ﾗ ﾑﾒ   ﾑ｡         ﾑ </option>
+<option value=":ISO-2022-JP:ISO-8859-5"> ､  ｡ﾗ ﾑﾒ   ﾑ｡         ﾑ </option>
+<option value=":CP933:KOI8-U"> BPBB </option>
+<option value=":CP949:MACCYRILLIC"> 릅햅閻飡溟 孫쬔㉶ⓜ 悧簫ⓜ </option>
+<option value=":CP949:CP930"> ??A힍뉯갂곉?@A갂터_???@@A?? </option>
+<option value=":CP933:ISO-8859-5"> u~PJKJ~J </option>
+<option value=":UTF-8:CP949"> �� ���� �Ҭ� �� �Ҭ�  �� ��    �� �� </option>
+<option value=":UTF-16:KOI8-R"> †₳싗†⃂댠††††술† </option>
+<option value=":BIG-5:WINDOWS-1251"> 狙咧蟡摵╳ 嶁洽悍恥  嶉恥 </option>
+<option value=":BIG-5:MACCYRILLIC"> 落蝣摵晲 摴蹙些佻  慳佻 </option>
+<option value=":GB2312:MACCYRILLIC"> 辅禽纰徕侉 彷沦ㄇㄙ  崆ㄙ </option>
+<option value=":CP949:SJIS"> 껮꼡 꼚꼛   꼚껮곅        꼚 </option>
+<option value=":UTF-16:KOI8-U"> 될₳싗†⃂댠††††술† </option>
+<option value=":CP949:ISO-8859-5"> ＾ § 喫黃 朞 黃  黃黃堀 黃 </option>
+<option value="::SJIS">    �F�x �q�r   �q�F��        �q     </option>
+<option value=":SJIS:CP930"> ??AﾆA 、?@A、ﾆ_???@@A?? </option>
+<option value=":CP949:CP866"> 肇 堤 、酋 ∝ 酋  酋酋  酋 </option>
+<option value=":CP930:CP933"> 臣促舞努 舞臣¬  舞 </option>
+<option value=":MACCYRILLIC:CP850"> ©Ѓ      ©   ™ ©Ѓ©     Ѓ© </option>
+<option value=":CP866:KOI8-R"> │┌ ┬╫   ┬│         ┬ </option>
+<option value=":GB2312:CP949"> ㈢       ㈢     ㈢ ㈢      ㈢ </option>
+<option value=":ISO-2022-JP:KOI8-R"> ｳﾚ ﾂﾗ   ﾂｳ         ﾂ </option>
+<option value=":SJIS:KOI8-R"> ｳﾚ ﾂﾗ   ﾂｳ         ﾂ </option>
+<option value=":WINDOWS-1251:CP850"> ©®      ©   Є ©®©     ®© </option>
+<option value=":WINDOWS-1251:ISO-8859-9"> ®«      ®   ¬ ®«®     «® </option>
+<option value=":WINDOWS-1251:ISO-8859-8"> ®«      ®   ¬ ®«®     «® </option>
+<option value=":WINDOWS-1251:ISO-8859-1"> ®«      ®   ¬ ®«®     «® </option>
+<option value=":CP933:WINDOWS-1253"> ￖￓￖￔￖￓￖￓￖ </option>
+<option value=":CP933:WINDOWS-1250"> ￖￓￖￔￖￓￖￓￖ </option>
+<option value=":CP933:WINDOWS-1255"> ￖￓￖￔￖￓￖￓￖ </option>
+<option value=":UTF-7:CP930"> ??A A A A ?@A A _???@@A ?? </option>
+<option value="::CP930"> ??A�A�A�A�?@A�A�_???@@A�?? </option>
+<option value=":UTF-8:CP930"> ??A�A�A�A�?@A�A�_???@@A�?? </option>
+<option value=":BIG-5:CP930"> ??A艷 A A ?@A A_???@@A ?? </option>
+<option value=":WINDOWS-1251:CP933"> ??JGJjJcJd?@JcJG_???@@Jc?? </option>
+<option value="::CP933"> ??JGJjJcJd?@JcJG_???@@Jc?? </option>
+<option value=":KOI8-U:CP933"> ??JGJjJcJd?@JcJG_???@@Jc?? </option>
+<option value=":KOI8-R:CP933"> ??JGJjJcJd?@JcJG_???@@Jc?? </option>
+<option value=":CP1361:UTF-16"> 712^ 1^^ ^ 1^ </option>
+<option value=":GB2312:CP930"> ??A  A A ?@A A_???@@A ?? </option>
+<option value=":MACCYRILLIC:KOI8-R"> ≥Џ ¬„   ¬≥         ¬ </option>
+<option value=":KOI8-U:ISO-8859-7"> ╚          ╛  ╚      ╚ </option>
+<option value=":KOI8-R:ISO-8859-7"> ╚          ╛  ╚      ╚ </option>
+<option value=":KOI8-R:WINDOWS-1253"> ╝╚╝ ╛╝╚╝  ╚╝ </option>
+<option value=":KOI8-R:WINDOWS-1250"> ╝╚╝ ╛╝╚╝  ╚╝ </option>
+<option value=":KOI8-U:WINDOWS-1250"> ╝╚╝ ╛╝╚╝  ╚╝ </option>
+<option value=":CP949:KOI8-U"> 넸 넬승粱  쨀         줏 </option>
+<option value=":SJIS:ISO-8859-7"> ｫ          ｬ  ｫ      ｫ </option>
+<option value=":ISO-2022-JP:ISO-8859-7"> ｫ          ｬ  ｫ      ｫ </option>
+<option value=":SJIS:WINDOWS-1253"> ｮｫｮ ｬｮｫｮ  ｫｮ </option>
+<option value=":ISO-2022-JP:WINDOWS-1250"> ｮｫｮ ｬｮｫｮ  ｫｮ </option>
+<option value=":SJIS:WINDOWS-1250"> ｮｫｮ ｬｮｫｮ  ｫｮ </option>
+<option value=":CP1361:CP930"> ??A쾨ㄱA?@AA_???@@A?? </option>
+<option value=":ISO-2022-JP:SJIS"> F x  q r    q F ﾊ         q </option>
+<option value=":ISO-2022-JP:CP866"> ｧ ｡｢   ｡          ｡ </option>
+<option value=":ISO-2022-JP:CP855"> ｮ  ｢   ｢  ｮ    ｢ｮ </option>
+<option value=":CP933:CP930"> ↓△▲ △¬  △ </option>
+<option value=":CP930:CP1166"> cb\pﾙｮ pbｮｮ ｮ pｮ </option>
+<option value=":UTF-8:SJIS"> �F�x �q�r   �q�F��        �q </option>
+<option value=":UTF-16:CP1361"> 򉺧   ⃞틞ꟙ⃞틙 </option>
+<option value="::ISO-8859-4">                             </option>
+<option value="::ISO-8859-6">                             </option>
+<option value="::ISO-8859-3">                             </option>
+<option value="::BIG-5">                             </option>
+<option value="::ISO-8859-10">                             </option>
+<option value="::ISO-8859-2">                             </option>
+<option value="::KOI8-R">    �� ��   ³         �     </option>
+<option value="::ISO-8859-7">   �          �  �      �    </option>
+<option value="::CP850">  ��      �   � ���     ��   </option>
+<option value="::WINDOWS-1254">  ��      �   � ���     ��   </option>
+<option value="::ISO-8859-8">  ��      �   � ���     ��   </option>
+<option value="::ISO-8859-9">  ��      �   � ���     ��   </option>
+<option value="::WINDOWS-1252">  ��      �   � ���     ��   </option>
+<option value="::ISO-8859-13">  ��      �   � ���     ��   </option>
+<option value="::ISO-8859-15">  ��      �   � ���     ��   </option>
+<option value="::ISO-8859-1">  ��      �   � ���     ��   </option>
+<option value=":UTF-7:SJIS"> F x  q r    q F           q </option>
+<option value=":CP930:CP1361"> RXﾒRKLRXKﾒRXRXKRX </option>
+<option value=":CP933:CP855"> gￖe3sqseqￖqqsￖq </option>
+<option value="::ISO-8859-5"> �  �� ���  ѡ �   � � �  �  </option>
+<option value=":UTF-8:WINDOWS-1251"> ������⢮ ᨬ����� � ᫮�� </option>
+<option value="::WINDOWS-1251"> ������⢮ ᨬ����� � ᫮�� </option>
+<option value=":UTF-8:KOI8-U"> �  �ڽ��   ³         �   � </option>
+<option value="::KOI8-U"> �  �ڽ��   ³         �   � </option>
+<option value=":UTF-8:MACCYRILLIC"> �������٨ ���٨Ǩ� � �Ǩ٢ </option>
+<option value="::MACCYRILLIC"> �������٨ ���٨Ǩ� � �Ǩ٢ </option>
+<option value="::CP1361"> ��ާ�������� ��ާ����  ���� </option>
+<option value=":UTF-8:CP1361"> ��ާ�������� ��ާ����  ���� </option>
+<option value=":CP949:ISO-8859-7"> ま         マ ま     ま </option>
+<option value=":UTF-16:CP855"> 螮藳ꋫ頠ꊅ颮頠頠ꊮ </option>
+<option value=":CP930:WINDOWS-1255"> ﾘsﾘﾖﾘsﾘsﾘ </option>
+<option value=":CP930:WINDOWS-1253"> ﾘsﾘﾖﾘsﾘsﾘ </option>
+<option value=":CP930:WINDOWS-1250"> ﾘsﾘﾖﾘsﾘsﾘ </option>
+<option value="::CP866"> �  � ���  �� �   � � �  �  </option>
+<option value=":BIG-5:SJIS"> F x  q r    q F          q </option>
+<option value=":GB2312:SJIS"> F x  q r    q F          q </option>
+<option value=":UTF-8:ISO-8859-5"> �  �� ���  ѡ �   � � �  � </option>
+<option value=":WINDOWS-1251:ISO-8859-7"> «          ¬  «      « </option>
+<option value=":UTF-8:CP866"> �  � ���  �� �   � � �  � </option>
+<option value=":CP949:KOI8-R"> 넬 쬈   쨀         줏 </option>
+<option value=":UTF-16:MACCYRILLIC"> 뢨쟝⃡ 잨꣙ </option>
+<option value=":CP933:MACCYRILLIC"> yGXsSRyBRyGyRRGyRs </option>
+<option value=":UTF-8:CP850"> ��      �   � ���     �� </option>
+<option value=":UTF-8:ISO-8859-1"> ��      �   � ���     �� </option>
+<option value=":UTF-8:ISO-8859-9"> ��      �   � ���     �� </option>
+<option value=":UTF-8:ISO-8859-8"> ��      �   � ���     �� </option>
+<option value=":BIG-5:CP850"> 帑          帑     悟 </option>
+<option value=":BIG-5:ISO-8859-8"> 悍          悍     垣 </option>
+<option value=":BIG-5:ISO-8859-1"> 悍          悍     垣 </option>
+<option value=":BIG-5:ISO-8859-9"> 悍          悍     垣 </option>
+<option value=":UTF-16:CP1166"> 摣뉸꽕䁸捕啀啀硕 </option>
+<option value=":CP949:CP855"> 눒낐 쀞쥌삷쀞쀞¡ </option>
+<option value=":CP1361:CP850"> 뽍          뽍     숼 </option>
+<option value=":CP1361:ISO-8859-9"> 숾          숾     삝 </option>
+<option value=":CP1361:ISO-8859-8"> 숾          숾     삝 </option>
+<option value=":CP1361:ISO-8859-1"> 숾          숾     삝 </option>
+<option value=":CP933:CP1361"> RXxRKLRXKxRXRXKRX </option>
+<option value=":CP1361:SJIS"> ㄵx qr   qㄵ        q </option>
+<option value=":UTF-8:ISO-8859-7"> �          �  �      � </option>
+<option value=":WINDOWS-1251:WINDOWS-1250"> ®«® ¬®«®  «® </option>
+<option value=":WINDOWS-1251:WINDOWS-1253"> ®«® ¬®«®  «® </option>
+<option value=":WINDOWS-1251:WINDOWS-1255"> ®«® ¬®«®  «® </option>
+<option value=":CP949:CP850"> ŧ      ⓡ  ⒭ŧⓡ </option>
+<option value=":CP930:MIK"> ﾒ‾ﾍ‾‾ </option>
+<option value=":KOI8-R:CP1166"> dc╡x╞U@xcUU@U@xU </option>
+<option value=":KOI8-U:CP1166"> dc╡x╞U@xcUU@U@xU </option>
+<option value=":SJIS:CP1166"> dcｲxｯU@xcUU@U@xU </option>
+<option value=":ISO-2022-JP:CP1166"> dcｲxｯU@xcUU@U@xU </option>
+<option value=":UTF-8:KOI8-R"> �� ��   ³         � </option>
+<option value=":SJIS:CP866"> ｡｢  ｡      ｡ </option>
+<option value=":SJIS:CP855"> ｢  ｢ ｮ  ｢ｮ </option>
+<option value=":CP933:KOI-7"> !ﾠﾭﾠﾠ </option>
+<option value=":MACCYRILLIC:CP1166"> dc≤xѓU@xcUU@U@xU </option>
+<option value=":CP855:CP1166"> dc▓x»U@xcUU@U@xU </option>
+<option value=":UTF-8:CP855"> ����� ����� � ��� </option>
+<option value="::CP855"> ����� ����� � ��� </option>
+<option value=":GB2312:WINDOWS-1251"> 绁徕  屺     岖 </option>
+<option value=":BIG-5:CP1166"> dc琊狹@xcUU@U@xU </option>
+<option value=":CP1361:CP1166"> dc쑞슛@xcUU@U@xU </option>
+<option value=":CP949:CP1166"> dc쾦칄@xcUU@U@xU </option>
+<option value=":KOI8-R:MIK"> ╖║╒ ║  ║ </option>
+<option value=":UTF-16:WINDOWS-1250"> 꺫긠겮ꮮ†ꮮ </option>
+<option value=":UTF-16:WINDOWS-1255"> 꺫긠겮ꮮ†ꮮ </option>
+<option value=":UTF-16:WINDOWS-1253"> 꺫긠겮ꮮ†ꮮ </option>
+<option value=":ISO-2022-JP:MIK"> ｧ｡｢ ｡  ｡ </option>
+<option value=":SJIS:MIK"> ｧ｡｢ ｡  ｡ </option>
+<option value=":CP930:CP852"> ﾘﾕﾘﾘ </option>
+<option value=":CP930:CP437"> ﾘﾕﾘﾘ </option>
+<option value=":CP933:CP437"> ￖￒￖￖ </option>
+<option value=":CP933:CP852"> ￖￒￖￖ </option>
+<option value=":CP1361:GB2312"> ^ ^^ ^ ^ </option>
+<option value=":KOI8-U:MIK"> ї║╒ ║  ║ </option>
+<option value=":CP930:KOI-7"> !｢｢｢ </option>
+<option value=":UTF-7:CP1166"> dc x U@xcUU@U@xU </option>
+<option value=":UTF-8:CP1166"> dc�x�U@xcUU@U@xU </option>
+<option value="::CP1166"> dc�x�U@xcUU@U@xU </option>
+<option value=":GB2312:CP850"> ┊          ┊ </option>
+<option value=":KOI8-U:CP437"> ╝ ╙╝  ╝ </option>
+<option value=":KOI8-R:CP852"> ╝ ╙╝  ╝ </option>
+<option value=":KOI8-R:CP437"> ╝ ╙╝  ╝ </option>
+<option value=":BIG-5:WINDOWS-1253"> 悍 洫垣  垣 </option>
+<option value=":BIG-5:WINDOWS-1250"> 悍 洫垣  垣 </option>
+<option value=":BIG-5:WINDOWS-1255"> 悍 洫垣  垣 </option>
+<option value=":CP1361:WINDOWS-1253"> 숾 샱삝  삝 </option>
+<option value=":CP1361:WINDOWS-1250"> 숾 샱삝  삝 </option>
+<option value=":CP1361:WINDOWS-1255"> 숾 샱삝  삝 </option>
+<option value=":SJIS:CP437"> ｮ ｪｮ  ｮ </option>
+<option value=":ISO-2022-JP:CP437"> ｮ ｪｮ  ｮ </option>
+<option value=":SJIS:CP852"> ｮ ｪｮ  ｮ </option>
+<option value=":GB2312:CP1166"> dc  @xcUU@U@xU </option>
+<option value=":BIG-5:CP855"> 鞷        ╳ </option>
+<option value=":BIG-5:KOI8-R"> 啼 豐   糧 </option>
+<option value=":GB2312:KOI8-R"> 弛 伦   鲁 </option>
+<option value="::WINDOWS-1258"> ��� ����  �� </option>
+<option value="::WINDOWS-1255"> ��� ����  �� </option>
+<option value="::WINDOWS-1250"> ��� ����  �� </option>
+<option value=":UTF-8:WINDOWS-1253"> ��� ����  �� </option>
+<option value="::WINDOWS-1257"> ��� ����  �� </option>
+<option value="::WINDOWS-1256"> ��� ����  �� </option>
+<option value=":UTF-8:WINDOWS-1250"> ��� ����  �� </option>
+<option value="::WINDOWS-1253"> ��� ����  �� </option>
+<option value=":UTF-8:WINDOWS-1255"> ��� ����  �� </option>
+<option value=":MACCYRILLIC:CP852"> Ѓ ™Ѓ  Ѓ </option>
+<option value=":MACCYRILLIC:CP437"> Ѓ ™Ѓ  Ѓ </option>
+<option value=":CP866:HP-ROMAN8"> √ √  √ </option>
+<option value=":MIK:HP-ROMAN8"> √ √  √ </option>
+<option value=":GB2312:ISO-8859-5"> ∽ 岩  选 </option>
+<option value=":CP949:ISO-8859-8"> マ      ギ </option>
+<option value=":CP949:ISO-8859-9"> マ      ギ </option>
+<option value=":CP949:ISO-8859-1"> マ      ギ </option>
+<option value=":BIG-5:KOI8-U"> 啼蝓   糧 </option>
+<option value=":UTF-16:KOI-7"> 婂圠䈠⁂ </option>
+<option value=":GB2312:KOI8-U"> 弛铰   鲁 </option>
+<option value=":GB2312:CP866"> 皈 、  ○ </option>
+<option value=":BIG-5:CP866"> 藃 ﹜  ♀ </option>
+<option value=":UTF-16:MIK"> ꞡꈠꄠ₡ </option>
+<option value=":CP1361:CP866"> 留 목  뫯 </option>
+<option value=":BIG-5:ISO-8859-5"> ＝ 旂  恁 </option>
+<option value=":CP933:MIK"> x~s~~ </option>
+<option value=":CP1166:MIK"> x~s~~ </option>
+<option value=":WINDOWS-1251:CP437"> ® Є®  ® </option>
+<option value=":WINDOWS-1251:CP852"> ® Є®  ® </option>
+<option value=":UTF-16:CP437"> 긠ꪮ† </option>
+<option value=":UTF-16:CP852"> 긠ꪮ† </option>
+<option value=":CP1361:ISO-8859-5"> 뫙   호 </option>
+<option value=":CP1361:KOI8-R"> 췡   췁 </option>
+<option value=":UTF-16:HP-ROMAN8"> ﬠﬠ⃻ </option>
+<option value=":KOI8-R:KOI-7"> ZBW B  B </option>
+<option value=":KOI8-U:KOI-7"> ZBW B  B </option>
+<option value="::KOI-7"> ZBW B  B </option>
+<option value=":WINDOWS-1251:KOI-7"> ZBW B  B </option>
+<option value="::MIK"> ��� �  � </option>
+<option value=":UTF-8:MIK"> ��� �  � </option>
+<option value="::CP437"> � ��  � </option>
+<option value=":UTF-8:CP437"> � ��  � </option>
+<option value="::CP852"> � ��  � </option>
+<option value=":UTF-8:CP852"> � ��  � </option>
+<option value=":CP930:HP-ROMAN8">  </option>
+<option value=":CP933:HP-ROMAN8">  </option>
+<option value=":CP949:MIK"> ㎕◇ </option>
+<option value=":CP949:HP-ROMAN8"> 割割 </option>
+<option value="::HP-ROMAN8"> � �  � </option>
+<option value=":UTF-8:HP-ROMAN8"> � �  � </option>
+<option value=":CP949:CP852"> ぎ </option>
+<option value=":CP949:CP437"> ぎ </option>
+<option value=":BIG-5:MIK"> 均 </option>
+<option value=":BIG-5:CP437"> 狙 </option>
+<option value=":BIG-5:CP852"> 狙 </option>
+<option value=":GB2312:CP855"> 螈 </option>
+</select>
+</td>
+<td><input type="submit" name="sampleselected" value="OK"></td>
+</tr>
+
+
+
+
+<tr>
+<td align="right"><strong>ИЛИ</strong> </td>
+<td align="right"><strong>Расширенный режим: </strong>
+
+исходная кодировка:
+<select name="src">
+<option value="WINDOWS-1251">WINDOWS-1251</option>
+<option value="KOI8-R">KOI8-R</option>
+<option value="KOI8-U">KOI8-U</option>
+<option value="KOI-7">KOI-7</option>
+<option value="ISO-8859-5">ISO-8859-5</option>
+<option value="CP855">CP855</option>
+<option value="CP866" selected="selected">CP866</option>
+<option value="MACCYRILLIC">MACCYRILLIC</option>
+<option value="MIK">MIK</option>
+<option value="UTF-8">UTF-8</option>
+<option value="GB2312">GB2312</option>
+<option value="CP949">CP949</option>
+<option value="CP1361">CP1361</option>
+<option value="CP930">CP930</option>
+<option value="CP933">CP933</option>
+<option value="CP1166">CP1166</option>
+<option value="UTF-7">UTF-7</option>
+<option value="UTF-16">UTF-16</option>
+<option value="SJIS">SJIS</option>
+<option value="ISO-2022-JP">ISO-2022-JP</option>
+<option value="BIG-5">BIG-5</option>
+</select>
+<br>отображается как:
+<select name="dsp">
+<option value="WINDOWS-1251">WINDOWS-1251</option>
+<option value="KOI8-R">KOI8-R</option>
+<option value="KOI8-U">KOI8-U</option>
+<option value="KOI-7">KOI-7</option>
+<option value="ISO-8859-5">ISO-8859-5</option>
+<option value="CP855">CP855</option>
+<option value="CP866">CP866</option>
+<option value="MACCYRILLIC">MACCYRILLIC</option>
+<option value="MIK">MIK</option>
+<option value="UTF-8">UTF-8</option>
+<option value="GB2312">GB2312</option>
+<option value="CP949">CP949</option>
+<option value="CP1361">CP1361</option>
+<option value="CP930">CP930</option>
+<option value="CP933">CP933</option>
+<option value="CP1166">CP1166</option>
+<option value="UTF-7">UTF-7</option>
+<option value="UTF-16">UTF-16</option>
+<option value="SJIS">SJIS</option>
+<option value="ISO-2022-JP">ISO-2022-JP</option>
+<option value="BIG-5">BIG-5</option>
+<option value="CP437">CP437</option>
+<option value="HP-ROMAN8">HP-ROMAN8</option>
+<option value="CP850">CP850</option>
+<option value="CP852">CP852</option>
+<option value="ISO-8859-1">ISO-8859-1</option>
+<option value="ISO-8859-2">ISO-8859-2</option>
+<option value="ISO-8859-3">ISO-8859-3</option>
+<option value="ISO-8859-4">ISO-8859-4</option>
+<option value="ISO-8859-6">ISO-8859-6</option>
+<option value="ISO-8859-7">ISO-8859-7</option>
+<option value="ISO-8859-8">ISO-8859-8</option>
+<option value="ISO-8859-9">ISO-8859-9</option>
+<option value="ISO-8859-10">ISO-8859-10</option>
+<option value="ISO-8859-13">ISO-8859-13</option>
+<option value="ISO-8859-15">ISO-8859-15</option>
+<option value="WINDOWS-1250">WINDOWS-1250</option>
+<option value="WINDOWS-1252" selected="selected">WINDOWS-1252</option>
+<option value="WINDOWS-1253">WINDOWS-1253</option>
+<option value="WINDOWS-1254">WINDOWS-1254</option>
+<option value="WINDOWS-1255">WINDOWS-1255</option>
+<option value="WINDOWS-1256">WINDOWS-1256</option>
+<option value="WINDOWS-1257">WINDOWS-1257</option>
+<option value="WINDOWS-1258">WINDOWS-1258</option>
+</select>
+постфильтр:
+<select name="prf">
+<option value="quoted-printable">quoted-printable</option>
+<option value="urlencoded">urlencoded</option>
+<option value="uurlencoded">uurlencoded</option>
+<option value="unicode">unicode</option>
+<option value="html-entities">html-entities</option>
+<option value="x-esc-entities">x-esc-entities</option>
+<option value="" selected="selected"></option>
+</select>
+
+
+</td>
+<td><input type="submit" name="expert" value="OK"></td>
+</tr>
+
+</tbody></table>
+
+
+</form>
+
+
+
+<h2>Результат (исходная кодировка : CP866)
+<button onclick="copyoutput();">Скопировать</button> <span id="copied"></span>
+</h2>
+<p class="output"><tt id="tt_output"> ол      о   м оло     ло  </tt></p>
+
+
+<table border="0" cellpadding="8" width="100%">
+<tbody><tr>
+<td valign="top" width="33%">
+<b><a href="http://5ko.free.fr/en/book.php" rel="nofollow">Гостевая книга</a></b>
+<br><br>
+<b>Поставьте ссылку на наш сайт!</b><br>
+<tt style="color:navy;">
+&lt;a href="http://2cyr.com/decode/"&gt;Универсальный декодер кириллицы&lt;/a&gt;
+</tt>
+</td>
+<td valign="top" width="33%" style="border-left: 2px solid #ccc;">
+
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=JYQGMAQV7TJSY" rel="noreferrer"><img src="./Универсальный декодер - конвертер кириллицы_files/donate.gif" alt="Donate" title="Donate via PayPal"></a> <b><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=JYQGMAQV7TJSY" rel="noreferrer">Donate via PayPal</a></b><br>
+
+You can help keeping the service running and without ads.<br><br>
+
+<b>Donate Bitcoins</b><br>
+<a href="bitcoin:192KAYCwZsHNTug634rPkGChiVzXufXsGw">192KAYCwZsHNTug634rPkGChiVzXufXsGw</a>
+</td>
+<td valign="top" width="33%" style="border-left: 2px solid #ccc;">
+<b>Custom Work</b><br>
+For a small fee I can help you quickly recode/recover large pieces of data - texts, databases, websites... or write custom functions you can use (invoice available).<br>  <span class="_deob"><a href="mailto:5ko@5ko.fr?subject=Request%20via%202cyr.com" class="mail">Contact me!</a></span>
+</td>
+</tr>
+</tbody></table>
+
+
+
+<h2>О программе</h2>
+<p>Здравствуйте! Эта страница может пригодиться, если вам прислали текст (предположительно на кириллице), который отображается в виде странной комбинации загадочных символов. Программа попытается угадать кодировку, а если не получится, покажет примеры всех комбинаций кодировок, чтобы вы могли выбрать подходящую.
+</p>
+<div class="vspace"></div><h3>Использование</h3>
+<ul><li>Скопируйте текст в большое текстовое поле дешифратора. Несколько первых слов будут проанализированы, поэтому желательно, чтобы в них содержалась (закодированная) кириллица.
+</li><li>Программа попытается декодировать текст и выведет результат в нижнее поле.
+</li><li>В случае удачной перекодировки вы увидите текст в кириллице, который можно при необходимости скопировать и сохранить.
+</li><li>В случае неудачной перекодировки (текст не в кириллице, состоящий из тех же или других нечитаемых символов) можно выбрать из нового выпадающего списка вариант в кириллице (если их несколько, выбирайте самый длинный). Нажав OK вы получите корректный перекодированный текст.
+</li><li>Если текст перекодирован лишь частично, попробуйте выбрать другие варианты кириллицы из выпадающего списка.
+</li></ul><div class="vspace"></div><a name="limits"></a><h3>Ограничения</h3>
+<ul><li>Если текст состоит из вопросительных знаков ("???? ?? ??????"), то проблема скорее всего на стороне отправителя и восстановить текст не получится. Попросите отправителя послать текст заново, желательно в формате простого текстового файла или в документе LibreOffice/OpenOffice/MSOffice.
+</li><li>Не любой текст может быть гарантированно декодирован, даже если есть вы уверены на 100%, что он написан в кириллице.
+
+</li><li>Анализируемый и декодированный тексты ограничены размером в 100 Кб.
+</li><li>Программа не всегда дает стопроцентную точность: при перекодировке из одной кодовой страницы в другую могут пропасть некоторые символы, такие как болгарские кавычки, реже отдельные буквы и т.п.
+</li><li>Программа проверяет максимум 6321 вариантов из двух и трех перекодировок: если имело место многократное перекодирование вроде koi8(utf(cp1251(utf))), оно не будет распознано или проверено. Обычно возможные и отображаемые верные варианты находятся между 32 и 255.
+</li><li>Если части текста закодированы в разных кодировках, программа сможет распознать только одну часть за раз.
+</li></ul><div class="vspace"></div><h3>Условия использования</h3>
+<p>Пожалуйста, обратите внимание на то, что данная бесплатная программа создана с надеждой, что она будет полезна, но без каких-либо явных или  косвенных гарантий пригодности для любого практического использования. Вы можете пользоваться ей на свой страх и риск.
+</p>
+<p class="vspace">Если вы используете для перекодировки очень длинный текст, убедитесь, что имеется его резервная копия.
+</p>
+<div class="vspace"></div><h3>Переводчики</h3>
+<p>
+Русский (Russian) : chAlx ; Пётр Васильев (<a href="http://yonyonson.livejournal.com/">http://yonyonson.livejournal.com/</a>)
+</p>
+<p>Страница подготовки переводов на другие языки <a class="ext" href="http://galleries.accent.bg/Decode/" title="">находится тут</a>.
+</p>
+<div class="vspace"></div><h3>Что нового</h3>
+<p><b>October 2013</b> : I am trying different optimizations for the system which should make the decoder run faster and handle more text. If you notice any problem, please notify me ASAP.</p>
+<p>На английской версии страницы доступен changelog программы.
+</p>
+<p class="vspace">Вернуться к <a href="https://2cyr.com/">кириллической виртуальной клавиатуре</a>.
+</p>
+
+<div class="footer">
+
+A software by <a href="http://5ko.fr/">Petko Yotov</a>  © 2004 - 2018 <br>
+Development sponsored by <a href="http://2cyr.com/?4">ACCENT Bulgaria Ltd</a>.<br>
+
+
+This same program should be also available at the following mirrors:
+<a href="http://www.accent.bg/decode/">ACCENT</a>
+| <a href="http://notamment.fr/decode/">Notamment</a>
+| <a href="http://5ko.free.fr/decode/">Free.fr</a>.<br>
+The original should be here: <a href="http://2cyr.com/decode/">Universal Cyrillic decoder</a>.
+
+</div>
+<script type="text/javascript" language="javascript"><!--
+function PHPct(){
+  var Q="";
+  var U = location.href;
+  U = U.replace(/[\#].*$/, '');
+  eval("var r = doc" +Q+ "ument.r" +Q+ "efe" +Q+"rrer;");
+  var a = location.href.match(/^(https?:\/\/)/);
+  var proto = (a)? a[1] : '//';
+  var doturl =proto +  "5ko.fr/br/rs"
+    +"s.php?name=2cyr&Re"
+    +"ferer="+encodeURIComponent(r)
+    +"&u="+encodeURIComponent(U)
+    +"&rnd="+ Math.random();
+  if(document.images) {
+    var dot = new Image();
+    dot.src = doturl;
+    //dot.onload = function(){ console.log("Loaded "+doturl); };
+  }
+  else {
+    document.writeln("<img"
+    +" src='"+doturl+"' alt='' border='0'/>");
+  }
+}
+PHPct(); //--></script><noscript>&lt;img border="0" src="http://5ko.fr/br/rss.php?name=2cyr" alt=""/&gt;</noscript>
+
+<script type="text/javascript"><!--
+
+function clform() {
+  var F = document.forms[0];
+  if(F.text.value=='') F.reset();
+  else F.text.value=''; 
+  
+  F.ident.selectedIndex=0;
+  if(F.hasOwnProperty('sample')) F.sample.selectedIndex=0;
+}
+
+
+/*
+  DeObMail() e-mail de-obfuscator
+  by Petko Yotov www.pmwiki.org/Petko
+*/
+
+function DeObMail() {
+  var tags=document.getElementsByTagName("span");
+  var LinkFmt = '<a href="%u" class="mail">%t</a>';
+  for(var i=0; i<tags.length; i++) {
+    if(tags[i].className!='_deob') continue;
+
+    var spans = tags[i].getElementsByTagName("span");
+    var url='';
+    var txt='';
+
+    for(var j =0; j<spans.length; j++) {
+      if(spans[j].className=='_t')
+        txt = DeobMailFix(spans[j].innerHTML);
+      else if(spans[j].className=='_m')
+        url = DeobMailFix(spans[j].innerHTML.replace(/^ *-&gt; */, ''));
+    }
+    if(!url) url = 'mailto:'+txt.replace(/^mailto:/, '');
+    var html = LinkFmt.replace(/%u/g, url).replace(/%t/g, txt);
+    tags[i].innerHTML = html;
+  }
+}
+function DeobMailFix(t) {
+  t = t.replace( /<span class=(['"]?)_d\1>[^<]+<\/span>/ig, '.');
+  t = t.replace( /<span class=(['"]?)_a\1>[^<]+<\/span>/ig, '@');
+  return t;
+}
+DeObMail();
+//--></script>
+
+
+
+</body></html>
